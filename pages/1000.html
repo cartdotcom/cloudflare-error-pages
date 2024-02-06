@@ -37,7 +37,7 @@
             box-sizing: border-box;
         }
 
-        h1 {
+        .error-summary {
             font-size: 30px;
             text-align: center;
             margin-bottom: 0;
@@ -181,7 +181,7 @@
                 margin-bottom: 80px;
             }
 
-            h1 {
+            .error-summary {
                 font-size: 42px;
                 margin-bottom: 0;
             }
@@ -258,9 +258,9 @@
                     d="M25.8933 251.39C21.5397 222.196 32.9826 181.717 43.5926 161.3C43.8608 160.643 44.3164 160.079 44.9027 159.679C45.4889 159.279 46.1799 159.061 46.8895 159.051H47.4969C47.4795 158.94 47.4621 158.83 47.4448 158.718C49.6145 158.638 51.787 158.749 53.9371 159.051H54.8559L54.8967 159.173C56.173 159.342 57.4995 159.538 58.8773 159.735C65.3341 160.651 73.0757 161.568 83.2814 159.709C80.8738 152.638 76.908 144.166 67.6306 134.017L78.2259 129.424C87.6551 141.327 92.7696 146.721 97.4426 155.726L97.9927 155.519V156.808C99.3236 159.475 100.631 162.472 102.006 166.036C102.194 167.593 101.377 168.109 97.9927 169.848V170.176C83.8506 177.619 73.4566 185.558 63.0913 187.688C71.4108 222.598 71.2416 251.391 53.3072 251.391L25.8933 251.39Z"
                     fill="#DCDDDF" />
             </svg>
-            <h2 class="error-code">::CLOUDFLARE_ERROR_1000S_BOX::</h2>
+            <div class="error-code">::CLOUDFLARE_ERROR_1000S_BOX::</div>
         </div>
-        <h1>Oops! unable to resolve host</h1>
+        <h1 class="error-summary">Oops! unable to resolve host</h1>
         <p>Please try again later.</p>
         <button id="btn-refresh" onclick="refresh()">Refresh</button>
     </section>
