@@ -18,15 +18,18 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
     steps:
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ vars.PKG_CART_COM_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.PKG_CART_COM_SECRET_ACCESS_KEY }}
-        aws-region: ${{ vars.PKG_CART_COM_REGION }}
+      - name: Checkout actions
+        uses: actions/checkout@v4
 
-    - name: Upload ${{ inputs.deploy_name }}
-      run: |
-        s3_path="s3://pkg.cart.com/errors"
-        echo "Uploading to $s3_path."
-        aws s3 cp pages/ $s3_path --recursive --cache-control no-cache,no-store,must-revalidate
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ vars.PKG_CART_COM_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PKG_CART_COM_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.PKG_CART_COM_REGION }}
+
+      - name: Upload ${{ inputs.deploy_name }}
+        run: |
+          s3_path="s3://pkg.cart.com/errors"
+          echo "Uploading to $s3_path."
+          aws s3 cp pages/ $s3_path --recursive --cache-control no-cache,no-store,must-revalidate
